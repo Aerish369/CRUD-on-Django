@@ -1,0 +1,69 @@
+{% extends 'appOne/home.html' %}
+
+{% block title %} Delete Project {% endblock %}
+
+{% block style %}
+/* Form container */
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto; /* Centering the form */
+    padding: 50px; /* Increased padding */
+    border: 2px solid #ccc; /* Increased border thickness */
+    border-radius: 15px; /* Increased border radius */
+    background-color: #f8f9fa;
+    width: 70%; /* Making the form wider */
+    max-width: 500px; /* Limiting the maximum width */
+}
+
+/* Form paragraph */
+form p {
+    font-size: 20px; /* Increased font size */
+    margin-bottom: 30px; /* Increased margin */
+}
+
+/* Cancel link */
+form a {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px; /* Increased padding */
+    text-decoration: none;
+    border-radius: 8px; /* Increased border radius */
+    margin-right: 20px; /* Increased margin */
+}
+
+form a:hover {
+    background-color: #0056b3;
+}
+
+/* Submit button */
+form input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px; /* Increased padding */
+    border: none;
+    border-radius: 8px; /* Increased border radius */
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #218838;
+}
+{% endblock %}
+
+{% block content %}
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{project.title}}" ?</p>
+
+    <a href = "{% url 'projects' %}"> Cancel </a>
+
+    <input type="Submit" value="Confirm" >
+</form>
+
+{% endblock %}

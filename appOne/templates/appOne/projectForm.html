@@ -1,0 +1,65 @@
+{% extends 'appOne/home.html' %}
+
+{% block title %} Create Project {% endblock %}
+
+{% block style %}
+
+form {
+    margin: 20px;
+    padding: 46px;
+    border: 2px solid #ccc;
+    border-radius: 26px;
+    background-color: #f8f9fa;
+    width: 481px;
+    position: absolute;
+    margin-left: 521px;
+    margin-top: 72px;
+}
+
+/* Form input fields */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+{% endblock %}
+
+{% block content %}
+
+<h1>Project Form</h1>
+<br>
+<hr>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="submit">
+</form>
+
+{% endblock %}
